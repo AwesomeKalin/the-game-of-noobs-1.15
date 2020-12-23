@@ -32,15 +32,15 @@
           },
           {
             "name": "x",
-            "type": "int"
+            "type": "number"
           },
           {
             "name": "y",
-            "type": "int"
+            "type": "number"
           },
           {
             "name": "z",
-            "type": "int"
+            "type": "number"
           },
           {
             "name": "world",
@@ -96,15 +96,15 @@
           },
           {
             "name": "x",
-            "type": "int"
+            "type": "number"
           },
           {
             "name": "y",
-            "type": "int"
+            "type": "number"
           },
           {
             "name": "z",
-            "type": "int"
+            "type": "number"
           },
           {
             "name": "world",
@@ -209,7 +209,7 @@
   "language_map": {
     "en_us": {
       "item.noob.mudaxe": "Mud Axe",
-      "biome.noob.noobbio": "Noob Biome",
+      "biome.noob.noobbio": "Noob Bio",
       "item.noob.noobdim": "Noob Igniter",
       "itemGroup.tabnoobtab": "The Game of Noobs",
       "item.noob.noobfood": "Noob Food",
@@ -236,5 +236,5 @@
     "modElementsPackage": "io.itch.awesomekalin.noob",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202000322116
+  "mcreatorVersion": 202000547520
 }

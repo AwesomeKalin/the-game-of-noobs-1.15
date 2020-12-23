@@ -11,6 +11,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 import net.minecraft.entity.LivingEntity;
 
+import java.util.Map;
+import java.util.HashMap;
+
 import io.itch.awesomekalin.noob.procedures.MudAxeMobIsHitWithToolProcedure;
 import io.itch.awesomekalin.noob.itemgroup.NoobTabItemGroup;
 import io.itch.awesomekalin.noob.NoobModElements;
@@ -53,12 +56,12 @@ public class MudSwordItem extends NoobModElements.ModElement {
 			@Override
 			public boolean hitEntity(ItemStack itemstack, LivingEntity entity, LivingEntity sourceentity) {
 				boolean retval = super.hitEntity(itemstack, entity, sourceentity);
-				int x = (int) entity.getPosX();
-				int y = (int) entity.getPosY();
-				int z = (int) entity.getPosZ();
+				double x = entity.getPosX();
+				double y = entity.getPosY();
+				double z = entity.getPosZ();
 				World world = entity.world;
 				{
-					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+					Map<String, Object> $_dependencies = new HashMap<>();
 					$_dependencies.put("entity", entity);
 					$_dependencies.put("itemstack", itemstack);
 					MudAxeMobIsHitWithToolProcedure.executeProcedure($_dependencies);
