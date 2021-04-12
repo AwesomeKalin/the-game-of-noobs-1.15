@@ -22,35 +22,35 @@ import io.itch.awesomekalin.noob.gui.NoobChestGUIGui;
 import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
-public class NoobChestGUIOnBlockRightClickedProcedure extends NoobModElements.ModElement {
-	public NoobChestGUIOnBlockRightClickedProcedure(NoobModElements instance) {
+public class NoobChestOnBlockRightClickedProcedure extends NoobModElements.ModElement {
+	public NoobChestOnBlockRightClickedProcedure(NoobModElements instance) {
 		super(instance, 3);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
-				System.err.println("Failed to load dependency entity for procedure NoobChestGUIOnBlockRightClicked!");
+				System.err.println("Failed to load dependency entity for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				System.err.println("Failed to load dependency x for procedure NoobChestGUIOnBlockRightClicked!");
+				System.err.println("Failed to load dependency x for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				System.err.println("Failed to load dependency y for procedure NoobChestGUIOnBlockRightClicked!");
+				System.err.println("Failed to load dependency y for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				System.err.println("Failed to load dependency z for procedure NoobChestGUIOnBlockRightClicked!");
+				System.err.println("Failed to load dependency z for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				System.err.println("Failed to load dependency world for procedure NoobChestGUIOnBlockRightClicked!");
+				System.err.println("Failed to load dependency world for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

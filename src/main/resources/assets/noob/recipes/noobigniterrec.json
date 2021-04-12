@@ -1,0 +1,35 @@
+{
+  "group": "noob",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    " 4 ",
+    "6 8"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "2": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "4": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "6": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "8": {
+      "item": "minecraft:dirt",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "noob:noobdim",
+    "count": 1
+  }
+}

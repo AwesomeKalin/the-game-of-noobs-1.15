@@ -101,7 +101,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 	public static DimensionType type = null;
 	private static Biome[] dimensionBiomes;
 	public NoobDimDimension(NoobModElements instance) {
-		super(instance, 5);
+		super(instance, 6);
 		MinecraftForge.EVENT_BUS.register(this);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}

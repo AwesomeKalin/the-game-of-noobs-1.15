@@ -23,7 +23,7 @@ public class MudAxeItem extends NoobModElements.ModElement {
 	@ObjectHolder("noob:mudaxe")
 	public static final Item block = null;
 	public MudAxeItem(NoobModElements instance) {
-		super(instance, 8);
+		super(instance, 9);
 	}
 
 	@Override

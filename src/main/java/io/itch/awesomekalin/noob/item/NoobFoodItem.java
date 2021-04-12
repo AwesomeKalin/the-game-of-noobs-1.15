@@ -23,7 +23,7 @@ public class NoobFoodItem extends NoobModElements.ModElement {
 	@ObjectHolder("noob:noobfood")
 	public static final Item block = null;
 	public NoobFoodItem(NoobModElements instance) {
-		super(instance, 7);
+		super(instance, 8);
 	}
 
 	@Override

@@ -8,7 +8,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.common.util.LazyOptional;
@@ -53,8 +52,6 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.material.Material;
@@ -74,7 +71,7 @@ import java.util.Collections;
 
 import io.netty.buffer.Unpooled;
 
-import io.itch.awesomekalin.noob.procedures.NoobChestGUIOnBlockRightClickedProcedure;
+import io.itch.awesomekalin.noob.procedures.NoobChestOnBlockRightClickedProcedure;
 import io.itch.awesomekalin.noob.itemgroup.NoobTabItemGroup;
 import io.itch.awesomekalin.noob.gui.NoobChestGUIGui;
 import io.itch.awesomekalin.noob.NoobModElements;
@@ -100,21 +97,10 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 	public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
 		event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("noobchest"));
 	}
-
-	@Override
-	@OnlyIn(Dist.CLIENT)
-	public void clientLoad(FMLClientSetupEvent event) {
-		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
-	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.SPONGE).sound(SoundType.SLIME).hardnessAndResistance(1f, 10f).lightValue(0).notSolid());
+			super(Block.Properties.create(Material.SPONGE).sound(SoundType.SLIME).hardnessAndResistance(1f, 10f).lightValue(0));
 			setRegistryName("noobchest");
-		}
-
-		@Override
-		public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
-			return false;
 		}
 
 		@Override
@@ -162,7 +148,7 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				NoobChestGUIOnBlockRightClickedProcedure.executeProcedure($_dependencies);
+				NoobChestOnBlockRightClickedProcedure.executeProcedure($_dependencies);
 			}
 			return ActionResultType.SUCCESS;
 		}
@@ -339,9 +325,9 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 				boolean blockCriteria = false;
 				if (blockAt.getBlock() == Blocks.STONE.getDefaultState().getBlock())
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.GRASS_BLOCK.getDefaultState().getBlock())
-					blockCriteria = true;
 				if (blockAt.getBlock() == Blocks.DIRT.getDefaultState().getBlock())
+					blockCriteria = true;
+				if (blockAt.getBlock() == Blocks.GRASS_BLOCK.getDefaultState().getBlock())
 					blockCriteria = true;
 				return blockCriteria;
 			}), block.getDefaultState(), 16)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 256))));

@@ -1,0 +1,33 @@
+{
+  "group": "noob",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    "6  "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "1": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "2": {
+      "item": "minecraft:dirt",
+      "data": 0
+    },
+    "4": {
+      "item": "minecraft:stick"
+    },
+    "6": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "noob:mudpickaxe",
+    "count": 1
+  }
+}

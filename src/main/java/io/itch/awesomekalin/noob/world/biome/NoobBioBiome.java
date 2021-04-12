@@ -43,7 +43,7 @@ public class NoobBioBiome extends NoobModElements.ModElement {
 	@ObjectHolder("noob:noobbio")
 	public static final CustomBiome biome = null;
 	public NoobBioBiome(NoobModElements instance) {
-		super(instance, 4);
+		super(instance, 5);
 	}
 
 	@Override

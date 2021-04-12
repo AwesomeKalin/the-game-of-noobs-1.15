@@ -13,7 +13,7 @@ import io.itch.awesomekalin.noob.NoobModElements;
 @NoobModElements.ModElement.Tag
 public class NoobFoodFoodEatenProcedure extends NoobModElements.ModElement {
 	public NoobFoodFoodEatenProcedure(NoobModElements instance) {
-		super(instance, 7);
+		super(instance, 8);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {

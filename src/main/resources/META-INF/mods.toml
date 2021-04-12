@@ -3,10 +3,10 @@ loaderVersion="[31,)"
 
 [[mods]]
 modId="noob"
-version="1.1"
+version="1.2"
 displayName="The Game of Noobs"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
-displayURL="https://github.com/AwesomeKalin/the-game-of-noobs-1.15"
+displayURL="https://github.com/AwesomeKalin/the-game-of-noobs"
 authors="AwesomeKalin55, AwesomeFootball 123"
 description='''
 The mod for noobs. DO NOT USE IF YOU ARE A PRO

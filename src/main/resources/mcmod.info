@@ -1,0 +1,20 @@
+[
+  {
+    "modid": "noob",
+    "name": "The Game of Noobs",
+    "description": "The mod for noobs. DO NOT USE IF YOU ARE A PRO",
+    "version": "1.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "logoFile": "",
+    "mcversion": "1.12.2",
+    "url": "https://github.com/AwesomeKalin/the-game-of-noobs",
+    "updateUrl": "",
+    "authorList": [
+      "AwesomeKalin55, AwesomeFootball 123"
+    ],
+    "dependencies": [],
+    "dependants": [],
+    "requiredMods": [],
+    "useDependencyInformation": "true"
+  }
+]

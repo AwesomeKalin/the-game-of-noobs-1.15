@@ -119,9 +119,9 @@ public class NoobChestGUIGui extends NoobModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 30) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 16, 27) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 133, 30) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 132, 26) {
 			}));
 			int si;
 			int sj;
@@ -332,7 +332,7 @@ public class NoobChestGUIGui extends NoobModElements.ModElement {
 
 		@Override
 		protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-			this.font.drawString("Noob Chest", 61, 1, -1);
+			this.font.drawString("Noob Chest", 60, 2, -1);
 		}
 
 		@Override

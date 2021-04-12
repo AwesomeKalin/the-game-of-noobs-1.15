@@ -20,10 +20,10 @@ import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
 public class MudPickaxeItem extends NoobModElements.ModElement {
-	@ObjectHolder("noob:mud_pickaxe")
+	@ObjectHolder("noob:mudpickaxe")
 	public static final Item block = null;
 	public MudPickaxeItem(NoobModElements instance) {
-		super(instance, 10);
+		super(instance, 12);
 	}
 
 	@Override
@@ -68,6 +68,6 @@ public class MudPickaxeItem extends NoobModElements.ModElement {
 				}
 				return retval;
 			}
-		}.setRegistryName("mud_pickaxe"));
+		}.setRegistryName("mudpickaxe"));
 	}
 }

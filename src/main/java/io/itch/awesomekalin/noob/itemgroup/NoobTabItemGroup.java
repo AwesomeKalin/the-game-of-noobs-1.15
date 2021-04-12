@@ -13,7 +13,7 @@ import io.itch.awesomekalin.noob.NoobModElements;
 @NoobModElements.ModElement.Tag
 public class NoobTabItemGroup extends NoobModElements.ModElement {
 	public NoobTabItemGroup(NoobModElements instance) {
-		super(instance, 1);
+		super(instance, 4);
 	}
 
 	@Override

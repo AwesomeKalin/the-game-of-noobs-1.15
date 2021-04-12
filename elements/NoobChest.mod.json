@@ -13,7 +13,7 @@
     "rotationMode": 0,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
-    "hasTransparency": true,
+    "hasTransparency": false,
     "connectedSides": false,
     "transparencyType": "SOLID",
     "mx": 0.0,
@@ -90,7 +90,7 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "onRightClicked": {
-      "name": "NoobChestGUIOnBlockRightClicked"
+      "name": "NoobChestOnBlockRightClicked"
     },
     "spawnWorldTypes": [
       "Surface"
@@ -101,10 +101,10 @@
         "value": "Blocks.STONE"
       },
       {
-        "value": "Blocks.GRASS"
+        "value": "Blocks.DIRT#0"
       },
       {
-        "value": "Blocks.DIRT#0"
+        "value": "Blocks.GRASS"
       }
     ],
     "frequencyPerChunks": 20,

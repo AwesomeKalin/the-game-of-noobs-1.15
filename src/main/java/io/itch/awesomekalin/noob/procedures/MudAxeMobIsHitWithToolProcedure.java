@@ -11,7 +11,7 @@ import io.itch.awesomekalin.noob.NoobModElements;
 @NoobModElements.ModElement.Tag
 public class MudAxeMobIsHitWithToolProcedure extends NoobModElements.ModElement {
 	public MudAxeMobIsHitWithToolProcedure(NoobModElements instance) {
-		super(instance, 8);
+		super(instance, 9);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -33,7 +33,7 @@ public class MudAxeMobIsHitWithToolProcedure extends NoobModElements.ModElement 
 			Entity _ent = entity;
 			if (!_ent.world.isRemote && _ent.world.getServer() != null) {
 				_ent.world.getServer().getCommandManager().handleCommand(_ent.getCommandSource().withFeedbackDisabled().withPermissionLevel(4),
-						"effect give @p poison 5 5");
+						"effect @p poison 5 5");
 			}
 		}
 	}
