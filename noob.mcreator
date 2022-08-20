@@ -470,6 +470,135 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "mud_hoe_recipe"
+    },
+    {
+      "name": "DirtArmourArmor",
+      "type": "armor",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dirt_armour_armor",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      }
+    },
+    {
+      "name": "DirtArmourArmorHelmetRecipe",
+      "type": "recipe",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dirt_armour_armor_helmet_recipe"
+    },
+    {
+      "name": "DirtArmourArmorBodyRecipe",
+      "type": "recipe",
+      "sortid": 47,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dirt_armour_armor_body_recipe"
+    },
+    {
+      "name": "DirtArmourArmorLeggingsRecipe",
+      "type": "recipe",
+      "sortid": 48,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dirt_armour_armor_leggings_recipe"
+    },
+    {
+      "name": "DirtArmourArmorBootsRecipe",
+      "type": "recipe",
+      "sortid": 49,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "dirt_armour_armor_boots_recipe"
+    },
+    {
+      "name": "Saliva",
+      "type": "item",
+      "sortid": 51,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "saliva"
+    },
+    {
+      "name": "CreativeGauntletRightClicked",
+      "type": "procedure",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "creative_gauntlet_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreativeGauntlet",
+      "type": "item",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "creative_gauntlet"
+    },
+    {
+      "name": "CreativeGaunt",
+      "type": "recipe",
+      "sortid": 54,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "creative_gaunt"
+    },
+    {
+      "name": "SwitchOutOfCreative",
+      "type": "procedure",
+      "sortid": 56,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "switch_out_of_creative",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TheNoob",
+      "type": "mob",
+      "sortid": 57,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "the_noob"
     }
   ],
   "variable_elements": [
@@ -484,6 +613,18 @@
       "type": "string",
       "scope": "global",
       "value": ""
+    },
+    {
+      "name": "CreativeTimer",
+      "type": "number",
+      "scope": "world",
+      "value": "0"
+    },
+    {
+      "name": "ActivatedGauntlet",
+      "type": "logic",
+      "scope": "world",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -540,7 +681,7 @@
   "workspaceSettings": {
     "modid": "noob",
     "modName": "The Game of Noobs",
-    "version": "1.2",
+    "version": "1.3",
     "description": "The mod for noobs. DO NOT USE IF YOU ARE A PRO",
     "author": "AwesomeKalin55, AwesomeFootball 123",
     "websiteURL": "https://github.com/AwesomeKalin/the-game-of-noobs",
@@ -551,7 +692,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.15.2",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about. Noob skin from https://www.minecraftskins.com/skin/20735075/noob/",
     "modElementsPackage": "io.itch.awesomekalin.noob",
     "lockBaseModFiles": false
   },
