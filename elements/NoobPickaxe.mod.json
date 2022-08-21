@@ -8,7 +8,7 @@
     "name": "Noob Pickaxe",
     "specialInfo": [],
     "creativeTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:NoobTab"
     },
     "toolType": "Pickaxe",
     "harvestLevel": 1,

@@ -5,11 +5,11 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.AxeItem;
 
+import io.itch.awesomekalin.noob.itemgroup.NoobTabItemGroup;
 import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
@@ -46,7 +46,7 @@ public class NoobAxeItem extends NoobModElements.ModElement {
 			public Ingredient getRepairMaterial() {
 				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block));
 			}
-		}, 1, -3f, new Item.Properties().group(ItemGroup.TOOLS)) {
+		}, 1, -3f, new Item.Properties().group(NoobTabItemGroup.tab)) {
 		}.setRegistryName("noob_axe"));
 	}
 }

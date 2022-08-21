@@ -6,10 +6,10 @@ import net.minecraftforge.registries.ObjectHolder;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 
+import io.itch.awesomekalin.noob.itemgroup.NoobTabItemGroup;
 import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
@@ -46,7 +46,7 @@ public class NoobSwordItem extends NoobModElements.ModElement {
 			public Ingredient getRepairMaterial() {
 				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block));
 			}
-		}, 3, -3f, new Item.Properties().group(ItemGroup.COMBAT)) {
+		}, 3, -3f, new Item.Properties().group(NoobTabItemGroup.tab)) {
 		}.setRegistryName("noob_sword"));
 	}
 }

@@ -8,7 +8,7 @@
     "name": "Noob Hoe",
     "specialInfo": [],
     "creativeTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:NoobTab"
     },
     "toolType": "Hoe",
     "harvestLevel": 1,

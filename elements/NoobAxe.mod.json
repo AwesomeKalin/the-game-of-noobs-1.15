@@ -8,7 +8,7 @@
     "name": "Noob Axe",
     "specialInfo": [],
     "creativeTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:NoobTab"
     },
     "toolType": "Axe",
     "harvestLevel": 1,
