@@ -1,8 +1,6 @@
 
 package io.itch.awesomekalin.noob.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
@@ -41,6 +39,8 @@ import java.util.HashMap;
 import io.itch.awesomekalin.noob.NoobModElements;
 import io.itch.awesomekalin.noob.NoobMod;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+
 @NoobModElements.ModElement.Tag
 public class NoobChestGUIGui extends NoobModElements.ModElement {
 	public static HashMap guistate = new HashMap();
@@ -62,7 +62,7 @@ public class NoobChestGUIGui extends NoobModElements.ModElement {
 
 	@SubscribeEvent
 	public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
-		event.getRegistry().register(containerType.setRegistryName("noobchestgui"));
+		event.getRegistry().register(containerType.setRegistryName("noob_chest_gui"));
 	}
 	public static class GuiContainerModFactory implements IContainerFactory {
 		public GuiContainerMod create(int id, PlayerInventory inv, PacketBuffer extraData) {
@@ -299,7 +299,7 @@ public class NoobChestGUIGui extends NoobModElements.ModElement {
 			this.xSize = 176;
 			this.ySize = 166;
 		}
-		private static final ResourceLocation texture = new ResourceLocation("noob:textures/noobchestgui.png");
+		private static final ResourceLocation texture = new ResourceLocation("noob:textures/noob_chest_gui.png");
 		@Override
 		public void render(int mouseX, int mouseY, float partialTicks) {
 			this.renderBackground();
@@ -308,12 +308,15 @@ public class NoobChestGUIGui extends NoobModElements.ModElement {
 		}
 
 		@Override
-		protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
-			GL11.glColor4f(1, 1, 1, 1);
+		protected void drawGuiContainerBackgroundLayer(float partialTicks, int gx, int gy) {
+			RenderSystem.color4f(1, 1, 1, 1);
+			RenderSystem.enableBlend();
+			RenderSystem.defaultBlendFunc();
 			Minecraft.getInstance().getTextureManager().bindTexture(texture);
 			int k = (this.width - this.xSize) / 2;
 			int l = (this.height - this.ySize) / 2;
 			this.blit(k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+			RenderSystem.disableBlend();
 		}
 
 		@Override

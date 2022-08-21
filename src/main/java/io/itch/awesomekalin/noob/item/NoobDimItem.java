@@ -15,7 +15,7 @@ import io.itch.awesomekalin.noob.world.dimension.NoobDimDimension;
 import io.itch.awesomekalin.noob.itemgroup.NoobTabItemGroup;
 
 public class NoobDimItem extends Item {
-	@ObjectHolder("noob:noobdim")
+	@ObjectHolder("noob:noob_dim")
 	public static final Item block = null;
 	public NoobDimItem() {
 		super(new Item.Properties().group(NoobTabItemGroup.tab).maxDamage(64));
@@ -33,10 +33,13 @@ public class NoobDimItem extends Item {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			if (world.isAirBlock(pos) && true)
+			boolean success = false;
+			if (world.isAirBlock(pos) && true) {
 				NoobDimDimension.portal.portalSpawn(world, pos);
-			itemstack.damageItem(1, entity, c -> c.sendBreakAnimation(context.getHand()));
-			return ActionResultType.SUCCESS;
+				itemstack.damageItem(1, entity, c -> c.sendBreakAnimation(context.getHand()));
+				success = true;
+			}
+			return success ? ActionResultType.SUCCESS : ActionResultType.FAIL;
 		}
 	}
 }

@@ -7,6 +7,7 @@ import net.minecraft.entity.Entity;
 import java.util.Map;
 
 import io.itch.awesomekalin.noob.NoobModElements;
+import io.itch.awesomekalin.noob.NoobMod;
 
 @NoobModElements.ModElement.Tag
 public class MudAxeMobIsHitWithToolProcedure extends NoobModElements.ModElement {
@@ -17,12 +18,12 @@ public class MudAxeMobIsHitWithToolProcedure extends NoobModElements.ModElement 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
-				System.err.println("Failed to load dependency entity for procedure MudAxeMobIsHitWithTool!");
+				NoobMod.LOGGER.warn("Failed to load dependency entity for procedure MudAxeMobIsHitWithTool!");
 			return;
 		}
 		if (dependencies.get("itemstack") == null) {
 			if (!dependencies.containsKey("itemstack"))
-				System.err.println("Failed to load dependency itemstack for procedure MudAxeMobIsHitWithTool!");
+				NoobMod.LOGGER.warn("Failed to load dependency itemstack for procedure MudAxeMobIsHitWithTool!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

@@ -20,7 +20,7 @@ import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
 public class NoobFoodItem extends NoobModElements.ModElement {
-	@ObjectHolder("noob:noobfood")
+	@ObjectHolder("noob:noob_food")
 	public static final Item block = null;
 	public NoobFoodItem(NoobModElements instance) {
 		super(instance, 8);
@@ -34,7 +34,7 @@ public class NoobFoodItem extends NoobModElements.ModElement {
 		public FoodItemCustom() {
 			super(new Item.Properties().group(NoobTabItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON)
 					.food((new Food.Builder()).hunger(1).saturation(0f).build()));
-			setRegistryName("noobfood");
+			setRegistryName("noob_food");
 		}
 
 		@Override

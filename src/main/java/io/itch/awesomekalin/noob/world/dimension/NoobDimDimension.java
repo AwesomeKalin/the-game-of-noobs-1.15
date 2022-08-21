@@ -94,9 +94,9 @@ import com.google.common.cache.LoadingCache;
 
 @NoobModElements.ModElement.Tag
 public class NoobDimDimension extends NoobModElements.ModElement {
-	@ObjectHolder("noob:noobdim")
+	@ObjectHolder("noob:noob_dim")
 	public static final ModDimension dimension = null;
-	@ObjectHolder("noob:noobdim_portal")
+	@ObjectHolder("noob:noob_dim_portal")
 	public static final CustomPortalBlock portal = null;
 	public static DimensionType type = null;
 	private static Biome[] dimensionBiomes;
@@ -108,26 +108,26 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 
 	@SubscribeEvent
 	public void registerDimension(RegistryEvent.Register<ModDimension> event) {
-		event.getRegistry().register(new CustomModDimension().setRegistryName("noobdim"));
+		event.getRegistry().register(new CustomModDimension().setRegistryName("noob_dim"));
 	}
 
 	@SubscribeEvent
 	public void onRegisterDimensionsEvent(RegisterDimensionsEvent event) {
-		if (DimensionType.byName(new ResourceLocation("noob:noobdim")) == null) {
-			DimensionManager.registerDimension(new ResourceLocation("noob:noobdim"), dimension, null, true);
+		if (DimensionType.byName(new ResourceLocation("noob:noob_dim")) == null) {
+			DimensionManager.registerDimension(new ResourceLocation("noob:noob_dim"), dimension, null, true);
 		}
-		type = DimensionType.byName(new ResourceLocation("noob:noobdim"));
+		type = DimensionType.byName(new ResourceLocation("noob:noob_dim"));
 	}
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
-		dimensionBiomes = new Biome[]{ForgeRegistries.BIOMES.getValue(new ResourceLocation("noob:noobbio")),};
+		dimensionBiomes = new Biome[]{ForgeRegistries.BIOMES.getValue(new ResourceLocation("noob:noob_bio")),};
 	}
 
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomPortalBlock());
-		elements.items.add(() -> new NoobDimItem().setRegistryName("noobdim"));
+		elements.items.add(() -> new NoobDimItem().setRegistryName("noob_dim"));
 	}
 
 	@Override
@@ -139,7 +139,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 		public CustomPortalBlock() {
 			super(Block.Properties.create(Material.PORTAL).doesNotBlockMovement().tickRandomly().hardnessAndResistance(-1.0F).sound(SoundType.GLASS)
 					.lightValue(0).noDrops());
-			setRegistryName("noobdim_portal");
+			setRegistryName("noob_dim_portal");
 		}
 
 		@Override
@@ -325,12 +325,12 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 				for (i = 0; i < 22; ++i) {
 					BlockPos blockpos = pos.offset(directionIn, i);
 					if (!this.func_196900_a(this.world.getBlockState(blockpos))
-							|| !(this.world.getBlockState(blockpos.down()).getBlock() == Blocks.DIRT.getDefaultState().getBlock())) {
+							|| !(this.world.getBlockState(blockpos.down()).getBlock() == Blocks.DIRT)) {
 						break;
 					}
 				}
 				BlockPos framePos = pos.offset(directionIn, i);
-				return (this.world.getBlockState(framePos).getBlock() == Blocks.DIRT.getDefaultState().getBlock()) ? i : 0;
+				return (this.world.getBlockState(framePos).getBlock() == Blocks.DIRT) ? i : 0;
 			}
 
 			public int getHeight() {
@@ -355,12 +355,12 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 						}
 						if (i == 0) {
 							BlockPos framePos = blockpos.offset(this.leftDir);
-							if (!(this.world.getBlockState(framePos).getBlock() == Blocks.DIRT.getDefaultState().getBlock())) {
+							if (!(this.world.getBlockState(framePos).getBlock() == Blocks.DIRT)) {
 								break label56;
 							}
 						} else if (i == this.width - 1) {
 							BlockPos framePos = blockpos.offset(this.rightDir);
-							if (!(this.world.getBlockState(framePos).getBlock() == Blocks.DIRT.getDefaultState().getBlock())) {
+							if (!(this.world.getBlockState(framePos).getBlock() == Blocks.DIRT)) {
 								break label56;
 							}
 						}
@@ -368,7 +368,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 				}
 				for (int j = 0; j < this.width; ++j) {
 					BlockPos framePos = this.bottomLeft.offset(this.rightDir, j).up(this.height);
-					if (!(this.world.getBlockState(framePos).getBlock() == Blocks.DIRT.getDefaultState().getBlock())) {
+					if (!(this.world.getBlockState(framePos).getBlock() == Blocks.DIRT)) {
 						this.height = 0;
 						break;
 					}
@@ -411,14 +411,14 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 		}
 	}
 	private static PointOfInterestType poi = null;
-	public static final TicketType<BlockPos> CUSTOM_PORTAL = TicketType.create("noobdim_portal", Vec3i::compareTo, 300);
+	public static final TicketType<BlockPos> CUSTOM_PORTAL = TicketType.create("noob_dim_portal", Vec3i::compareTo, 300);
 	@SubscribeEvent
 	public void registerPointOfInterest(RegistryEvent.Register<PointOfInterestType> event) {
 		try {
 			Method method = ObfuscationReflectionHelper.findMethod(PointOfInterestType.class, "func_226359_a_", String.class, Set.class, int.class,
 					int.class);
 			method.setAccessible(true);
-			poi = (PointOfInterestType) method.invoke(null, "noobdim_portal",
+			poi = (PointOfInterestType) method.invoke(null, "noob_dim_portal",
 					Sets.newHashSet(ImmutableSet.copyOf(portal.getStateContainer().getValidStates())), 0, 1);
 			event.getRegistry().register(poi);
 		} catch (Exception e) {
@@ -591,8 +591,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 							int l10 = k6 + (i8 - 1) * i3 - j7 * l6;
 							boolean flag = i9 < 0;
 							blockpos$mutable.setPos(l9, j10, l10);
-							this.world.setBlockState(blockpos$mutable,
-									flag ? Blocks.DIRT.getDefaultState().getBlock().getDefaultState() : Blocks.AIR.getDefaultState());
+							this.world.setBlockState(blockpos$mutable, flag ? Blocks.DIRT.getDefaultState() : Blocks.AIR.getDefaultState());
 						}
 					}
 				}
@@ -601,7 +600,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 				for (int j8 = -1; j8 < 4; ++j8) {
 					if (k7 == -1 || k7 == 2 || j8 == -1 || j8 == 3) {
 						blockpos$mutable.setPos(i6 + k7 * l6, k2 + j8, k6 + k7 * i3);
-						this.world.setBlockState(blockpos$mutable, Blocks.DIRT.getDefaultState().getBlock().getDefaultState(), 3);
+						this.world.setBlockState(blockpos$mutable, Blocks.DIRT.getDefaultState(), 3);
 					}
 				}
 			}
@@ -671,7 +670,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 
 		@Override
 		@OnlyIn(Dist.CLIENT)
-		public Vec3d getFogColor(float cangle, float ticks) {
+		public Vec3d getFogColor(float celestialAngle, float partialTicks) {
 			return new Vec3d(0.752941176471, 0.847058823529, 1);
 		}
 
@@ -766,8 +765,7 @@ public class NoobDimDimension extends NoobModElements.ModElement {
 				for (Biome biome : this.biomes) {
 					biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(new CaveWorldCarver(ProbabilityConfig::deserialize, 256) {
 						{
-							carvableBlocks = ImmutableSet.of(Blocks.DIRT.getDefaultState().getBlock(),
-									biome.getSurfaceBuilder().getConfig().getTop().getBlock(),
+							carvableBlocks = ImmutableSet.of(Blocks.DIRT, biome.getSurfaceBuilder().getConfig().getTop().getBlock(),
 									biome.getSurfaceBuilder().getConfig().getUnder().getBlock());
 						}
 					}, new ProbabilityConfig(0.14285715f)));

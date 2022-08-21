@@ -44,7 +44,7 @@ public class NoobHoeItem extends NoobModElements.ModElement {
 			}
 
 			public Ingredient getRepairMaterial() {
-				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block, (int) (1)));
+				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block));
 			}
 		}, -3f, new Item.Properties().group(ItemGroup.TOOLS)) {
 		}.setRegistryName("noob_hoe"));

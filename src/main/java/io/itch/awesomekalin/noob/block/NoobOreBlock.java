@@ -16,6 +16,7 @@ import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
@@ -56,6 +57,11 @@ public class NoobOreBlock extends NoobModElements.ModElement {
 		}
 
 		@Override
+		public int getOpacity(BlockState state, IBlockReader worldIn, BlockPos pos) {
+			return 15;
+		}
+
+		@Override
 		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
@@ -81,17 +87,17 @@ public class NoobOreBlock extends NoobModElements.ModElement {
 				}
 			}.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.create("noob_ore", "noob_ore", blockAt -> {
 				boolean blockCriteria = false;
-				if (blockAt.getBlock() == Blocks.STONE.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.STONE)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.DIRT.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.DIRT)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.COARSE_DIRT.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.COARSE_DIRT)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.PODZOL.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.PODZOL)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.GRASS_BLOCK.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.GRASS_BLOCK)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.END_PORTAL_FRAME.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.END_PORTAL_FRAME)
 					blockCriteria = true;
 				return blockCriteria;
 			}), block.getDefaultState(), 32)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(32, 1, 1, 256))));

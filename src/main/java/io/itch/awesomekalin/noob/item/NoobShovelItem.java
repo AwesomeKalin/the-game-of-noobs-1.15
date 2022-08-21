@@ -44,7 +44,7 @@ public class NoobShovelItem extends NoobModElements.ModElement {
 			}
 
 			public Ingredient getRepairMaterial() {
-				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block, (int) (1)));
+				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block));
 			}
 		}, 1, -3f, new Item.Properties().group(NoobTabItemGroup.tab)) {
 		}.setRegistryName("noob_shovel"));

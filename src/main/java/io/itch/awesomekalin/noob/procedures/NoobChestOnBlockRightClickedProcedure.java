@@ -20,6 +20,7 @@ import io.netty.buffer.Unpooled;
 
 import io.itch.awesomekalin.noob.gui.NoobChestGUIGui;
 import io.itch.awesomekalin.noob.NoobModElements;
+import io.itch.awesomekalin.noob.NoobMod;
 
 @NoobModElements.ModElement.Tag
 public class NoobChestOnBlockRightClickedProcedure extends NoobModElements.ModElement {
@@ -30,27 +31,27 @@ public class NoobChestOnBlockRightClickedProcedure extends NoobModElements.ModEl
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
-				System.err.println("Failed to load dependency entity for procedure NoobChestOnBlockRightClicked!");
+				NoobMod.LOGGER.warn("Failed to load dependency entity for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				System.err.println("Failed to load dependency x for procedure NoobChestOnBlockRightClicked!");
+				NoobMod.LOGGER.warn("Failed to load dependency x for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				System.err.println("Failed to load dependency y for procedure NoobChestOnBlockRightClicked!");
+				NoobMod.LOGGER.warn("Failed to load dependency y for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				System.err.println("Failed to load dependency z for procedure NoobChestOnBlockRightClicked!");
+				NoobMod.LOGGER.warn("Failed to load dependency z for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				System.err.println("Failed to load dependency world for procedure NoobChestOnBlockRightClicked!");
+				NoobMod.LOGGER.warn("Failed to load dependency world for procedure NoobChestOnBlockRightClicked!");
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");

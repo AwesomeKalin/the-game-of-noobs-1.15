@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "noob:block/noob_dim_portal_ew"
+    },
+    "axis=x": {
+      "model": "noob:block/noob_dim_portal_ns"
+    }
+  }
+}

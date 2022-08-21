@@ -44,7 +44,7 @@ public class NoobSwordItem extends NoobModElements.ModElement {
 			}
 
 			public Ingredient getRepairMaterial() {
-				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block, (int) (1)));
+				return Ingredient.fromStacks(new ItemStack(NoobDustItem.block));
 			}
 		}, 3, -3f, new Item.Properties().group(ItemGroup.COMBAT)) {
 		}.setRegistryName("noob_sword"));

@@ -78,6 +78,9 @@
       "locked_code": false,
       "ids": {
         "1": 1
+      },
+      "metadata": {
+        "ep": true
       }
     },
     {
@@ -571,29 +574,8 @@
       "registry_name": "creative_gaunt"
     },
     {
-      "name": "SwitchOutOfCreative",
-      "type": "procedure",
-      "sortid": 56,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "switch_out_of_creative",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
       "name": "TheNoob",
-      "type": "mob",
+      "type": "livingentity",
       "sortid": 57,
       "compiles": true,
       "locked_code": false,
@@ -613,18 +595,6 @@
       "type": "string",
       "scope": "global",
       "value": ""
-    },
-    {
-      "name": "CreativeTimer",
-      "type": "number",
-      "scope": "world",
-      "value": "0"
-    },
-    {
-      "name": "ActivatedGauntlet",
-      "type": "logic",
-      "scope": "world",
-      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -632,28 +602,52 @@
     "en_us": {
       "item.noob.noob_armor_leggings": "Noob Leggings",
       "item.noob.mudpickaxe": "Mud Pickaxe",
+      "item.noob.dirt_armour_armor_leggings": "DirtArmour Leggings",
       "itemGroup.tabnoobtab": "The Game of Noobs",
       "item.noob.noob_hoe": "Noob Hoe",
+      "itemGroup.tabnoob_tab": "The Game of Noobs",
+      "item.noob.creative_gauntlet": "Creative Gauntlet",
+      "item.noob.noob_armor_chestplate": "Noob Chestplate",
+      "item.mudpickaxe.name": "Mud Pickaxe",
+      "item.noob.dirt_armour_armor_boots": "DirtArmour Boots",
+      "item.noob.mud_shovel_top": "Mud Shovel Top",
+      "tile.noob_ore.name": "Noob Ore",
+      "item.noob.noob_pickaxe": "Noob Pickaxe",
+      "biome.noob.noob_bio": "Noob Bio",
+      "item.noob.mudaxe": "Mud Axe",
+      "item.noob.mud_shovel": "Mud Shovel",
+      "item.noob.saliva": "Saliva",
+      "item.noob_axe.name": "Noob Axe",
+      "item.noob_hoe.name": "Noob Hoe",
+      "item.mud_hoe.name": "Mud Hoe",
+      "item.noob.dirt_armour_armor_chestplate": "DirtArmour Chestplate",
+      "item.noob.the_noob_spawn_egg": "The Noob Spawn Egg",
+      "item.noob.noob_dust": "Noob",
+      "item.mudsword.name": "Mud Sword",
+      "item.mud_shovel_top.name": "Mud Shovel Top",
+      "item.mud_shovel_bottom.name": "Mud Shovel Bottom",
+      "item.noob.mud_hoe": "Mud Hoe",
+      "item.noob.noob_armor_helmet": "Noob Helmet",
+      "item.mudaxe.name": "Mud Axe",
+      "item.noob_armorboots.name": "Noob Boots",
+      "item.noob_armorbody.name": "Noob Chestplate",
+      "block.noob.noob_block": "Block of Noob",
+      "block.noob.noob_chest": "Noob Chest",
+      "item.noob.noob_dim": "Noob Igniter",
+      "item.noob.mud_axe": "Mud Axe",
+      "item.noob.mud_sword": "Mud Sword",
+      "entity.noob.the_noob": "The Noob",
       "tile.noob_block.name": "Block of Noob",
       "item.noob.noob_armor_boots": "Noob Boots",
       "item.noob.mudsword": "Mud Sword",
-      "item.noob.noob_armor_chestplate": "Noob Chestplate",
-      "item.mudpickaxe.name": "Mud Pickaxe",
-      "item.noob.mud_shovel_top": "Mud Shovel Top",
       "item.noob_armorhelmet.name": "Noob Helmet",
-      "tile.noob_ore.name": "Noob Ore",
-      "item.noob.noob_pickaxe": "Noob Pickaxe",
       "item.noob.noob_shovel": "Noob Shovel",
       "block.noob.noobchest": "Noob Chest",
-      "item.noob.mudaxe": "Mud Axe",
       "item.noob.noob_sword": "Noob Sword",
-      "item.noob.mud_shovel": "Mud Shovel",
       "item.noob_shovel.name": "Noob Shovel",
       "item.noob.noobdim": "Noob Igniter",
-      "item.noob_axe.name": "Noob Axe",
+      "item.noob.noob_food": "Noob Food",
       "item.noob_sword.name": "Noob Sword",
-      "item.noob_hoe.name": "Noob Hoe",
-      "item.mud_hoe.name": "Mud Hoe",
       "item.noob.noobfood": "Noob Food",
       "block.noob.noob_ore": "Noob Ore",
       "tile.noobchest.name": "Noob Chest",
@@ -661,22 +655,18 @@
       "item.noob_dust.name": "Noob",
       "item.mud_shovel.name": "Mud Shovel",
       "item.noob_armorlegs.name": "Noob Leggings",
-      "item.noob.noob_dust": "Noob",
+      "item.noob.mud_pickaxe": "Mud Pickaxe",
       "biome.noob.noobbio": "Noob Bio",
-      "item.mudsword.name": "Mud Sword",
-      "item.mud_shovel_top.name": "Mud Shovel Top",
-      "item.mud_shovel_bottom.name": "Mud Shovel Bottom",
-      "item.noob.mud_hoe": "Mud Hoe",
-      "item.noob.noob_armor_helmet": "Noob Helmet",
       "item.noobdim.name": "Noob Igniter",
       "item.noob_pickaxe.name": "Noob Pickaxe",
-      "item.mudaxe.name": "Mud Axe",
       "item.noobfood.name": "Noob Food",
-      "item.noob_armorboots.name": "Noob Boots",
       "item.noob.noob_axe": "Noob Axe",
-      "item.noob_armorbody.name": "Noob Chestplate",
-      "block.noob.noob_block": "Block of Noob"
+      "item.noob.dirt_armour_armor_helmet": "DirtArmour Helmet"
     }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
   },
   "workspaceSettings": {
     "modid": "noob",
@@ -696,5 +686,5 @@
     "modElementsPackage": "io.itch.awesomekalin.noob",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202000547520
+  "mcreatorVersion": 202100236710
 }

@@ -20,7 +20,7 @@ import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
 public class MudSwordItem extends NoobModElements.ModElement {
-	@ObjectHolder("noob:mudsword")
+	@ObjectHolder("noob:mud_sword")
 	public static final Item block = null;
 	public MudSwordItem(NoobModElements instance) {
 		super(instance, 11);
@@ -68,6 +68,6 @@ public class MudSwordItem extends NoobModElements.ModElement {
 				}
 				return retval;
 			}
-		}.setRegistryName("mudsword"));
+		}.setRegistryName("mud_sword"));
 	}
 }

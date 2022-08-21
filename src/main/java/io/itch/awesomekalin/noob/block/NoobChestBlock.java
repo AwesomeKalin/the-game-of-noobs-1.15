@@ -78,9 +78,9 @@ import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
 public class NoobChestBlock extends NoobModElements.ModElement {
-	@ObjectHolder("noob:noobchest")
+	@ObjectHolder("noob:noob_chest")
 	public static final Block block = null;
-	@ObjectHolder("noob:noobchest")
+	@ObjectHolder("noob:noob_chest")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public NoobChestBlock(NoobModElements instance) {
 		super(instance, 1);
@@ -95,12 +95,17 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 
 	@SubscribeEvent
 	public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
-		event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("noobchest"));
+		event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("noob_chest"));
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.SPONGE).sound(SoundType.SLIME).hardnessAndResistance(1f, 10f).lightValue(0));
-			setRegistryName("noobchest");
+			setRegistryName("noob_chest");
+		}
+
+		@Override
+		public int getOpacity(BlockState state, IBlockReader worldIn, BlockPos pos) {
+			return 15;
 		}
 
 		@Override
@@ -118,8 +123,8 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 
 		@OnlyIn(Dist.CLIENT)
 		@Override
-		public void animateTick(BlockState state, World world, BlockPos pos, Random random) {
-			super.animateTick(state, world, pos, random);
+		public void animateTick(BlockState blockstate, World world, BlockPos pos, Random random) {
+			super.animateTick(blockstate, world, pos, random);
 			PlayerEntity entity = Minecraft.getInstance().player;
 			int x = pos.getX();
 			int y = pos.getY();
@@ -134,12 +139,15 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 		}
 
 		@Override
-		public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity entity, Hand hand,
+		public ActionResultType onBlockActivated(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, Hand hand,
 				BlockRayTraceResult hit) {
-			super.onBlockActivated(state, world, pos, entity, hand, hit);
+			super.onBlockActivated(blockstate, world, pos, entity, hand, hit);
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
+			double hitX = hit.getHitVec().x;
+			double hitY = hit.getHitVec().y;
+			double hitZ = hit.getHitVec().z;
 			Direction direction = hit.getFace();
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
@@ -245,7 +253,7 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 
 		@Override
 		public ITextComponent getDefaultName() {
-			return new StringTextComponent("noobchest");
+			return new StringTextComponent("noob_chest");
 		}
 
 		@Override
@@ -321,13 +329,13 @@ public class NoobChestBlock extends NoobModElements.ModElement {
 						return false;
 					return super.place(world, generator, rand, pos, config);
 				}
-			}.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.create("noobchest", "noobchest", blockAt -> {
+			}.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.create("noob_chest", "noob_chest", blockAt -> {
 				boolean blockCriteria = false;
-				if (blockAt.getBlock() == Blocks.STONE.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.STONE)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.DIRT.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.DIRT)
 					blockCriteria = true;
-				if (blockAt.getBlock() == Blocks.GRASS_BLOCK.getDefaultState().getBlock())
+				if (blockAt.getBlock() == Blocks.GRASS_BLOCK)
 					blockCriteria = true;
 				return blockCriteria;
 			}), block.getDefaultState(), 16)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(20, 0, 0, 256))));

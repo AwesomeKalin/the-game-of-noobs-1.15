@@ -40,7 +40,7 @@ import io.itch.awesomekalin.noob.NoobModElements;
 
 @NoobModElements.ModElement.Tag
 public class NoobBioBiome extends NoobModElements.ModElement {
-	@ObjectHolder("noob:noobbio")
+	@ObjectHolder("noob:noob_bio")
 	public static final CustomBiome biome = null;
 	public NoobBioBiome(NoobModElements instance) {
 		super(instance, 5);
@@ -59,12 +59,12 @@ public class NoobBioBiome extends NoobModElements.ModElement {
 			super(new Biome.Builder().downfall(1f).depth(0.1f).scale(0.2f).temperature(0.5f).precipitation(Biome.RainType.RAIN)
 					.category(Biome.Category.NONE).waterColor(-14329397).waterFogColor(-14329397).surfaceBuilder(SurfaceBuilder.DEFAULT,
 							new SurfaceBuilderConfig(Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState(), Blocks.DIRT.getDefaultState())));
-			setRegistryName("noobbio");
+			setRegistryName("noob_bio");
 			DefaultBiomeFeatures.addCarvers(this);
 			DefaultBiomeFeatures.addMonsterRooms(this);
-			DefaultBiomeFeatures.addStructures(this);
 			DefaultBiomeFeatures.addOres(this);
 			DefaultBiomeFeatures.addLakes(this);
+			DefaultBiomeFeatures.addFreezeTopLayer(this);
 			this.addStructure(Feature.STRONGHOLD.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
 			this.addStructure(Feature.MINESHAFT.withConfiguration(new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL)));
 			this.addStructure(Feature.PILLAGER_OUTPOST.withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
@@ -136,8 +136,7 @@ public class NoobBioBiome extends NoobModElements.ModElement {
 				} else {
 					Block ground = world.getBlockState(position.add(0, -1, 0)).getBlock();
 					Block ground2 = world.getBlockState(position.add(0, -2, 0)).getBlock();
-					if (!((ground == Blocks.DIRT.getDefaultState().getBlock() || ground == Blocks.DIRT.getDefaultState().getBlock())
-							&& (ground2 == Blocks.DIRT.getDefaultState().getBlock() || ground2 == Blocks.DIRT.getDefaultState().getBlock())))
+					if (!((ground == Blocks.DIRT || ground == Blocks.DIRT) && (ground2 == Blocks.DIRT || ground2 == Blocks.DIRT)))
 						return false;
 					BlockState state = world.getBlockState(position.down());
 					if (position.getY() < world.getHeight() - height - 1) {
@@ -152,8 +151,8 @@ public class NoobBioBiome extends NoobModElements.ModElement {
 										BlockPos blockpos = new BlockPos(k1, genh, i2);
 										state = world.getBlockState(blockpos);
 										if (state.getBlock().isAir(state, world, blockpos) || state.getMaterial().blocksMovement()
-												|| state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.DIRT.getDefaultState().getBlock()
-												|| state.getBlock() == Blocks.DIRT.getDefaultState().getBlock()) {
+												|| state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.DIRT
+												|| state.getBlock() == Blocks.DIRT) {
 											setTreeBlockState(changedBlocks, world, blockpos, Blocks.DIRT.getDefaultState(), bbox);
 										}
 									}
@@ -165,8 +164,40 @@ public class NoobBioBiome extends NoobModElements.ModElement {
 							state = world.getBlockState(genhPos);
 							setTreeBlockState(changedBlocks, world, genhPos, Blocks.DIRT.getDefaultState(), bbox);
 							if (state.getBlock().isAir(state, world, genhPos) || state.getMaterial().blocksMovement() || state.isIn(BlockTags.LEAVES)
-									|| state.getBlock() == Blocks.DIRT.getDefaultState().getBlock()
-									|| state.getBlock() == Blocks.DIRT.getDefaultState().getBlock()) {
+									|| state.getBlock() == Blocks.DIRT || state.getBlock() == Blocks.DIRT) {
+								if (genh > 0) {
+									if (rand.nextInt(3) > 0 && world.isAirBlock(position.add(-1, genh, 0)))
+										setTreeBlockState(changedBlocks, world, position.add(-1, genh, 0), Blocks.DIRT.getDefaultState(), bbox);
+									if (rand.nextInt(3) > 0 && world.isAirBlock(position.add(1, genh, 0)))
+										setTreeBlockState(changedBlocks, world, position.add(1, genh, 0), Blocks.DIRT.getDefaultState(), bbox);
+									if (rand.nextInt(3) > 0 && world.isAirBlock(position.add(0, genh, -1)))
+										setTreeBlockState(changedBlocks, world, position.add(0, genh, -1), Blocks.DIRT.getDefaultState(), bbox);
+									if (rand.nextInt(3) > 0 && world.isAirBlock(position.add(0, genh, 1)))
+										setTreeBlockState(changedBlocks, world, position.add(0, genh, 1), Blocks.DIRT.getDefaultState(), bbox);
+								}
+							}
+						}
+						for (int genh = position.getY() - 3 + height; genh <= position.getY() + height; genh++) {
+							int k4 = (int) (1 - (genh - (position.getY() + height)) * 0.5);
+							for (int genx = position.getX() - k4; genx <= position.getX() + k4; genx++) {
+								for (int genz = position.getZ() - k4; genz <= position.getZ() + k4; genz++) {
+									BlockPos bpos = new BlockPos(genx, genh, genz);
+									state = world.getBlockState(bpos);
+									if (state.isIn(BlockTags.LEAVES) || state.getBlock() == Blocks.DIRT) {
+										BlockPos blockpos1 = bpos.south();
+										BlockPos blockpos2 = bpos.west();
+										BlockPos blockpos3 = bpos.east();
+										BlockPos blockpos4 = bpos.north();
+										if (rand.nextInt(4) == 0 && world.isAirBlock(blockpos2))
+											this.addVines(world, blockpos2, changedBlocks, bbox);
+										if (rand.nextInt(4) == 0 && world.isAirBlock(blockpos3))
+											this.addVines(world, blockpos3, changedBlocks, bbox);
+										if (rand.nextInt(4) == 0 && world.isAirBlock(blockpos4))
+											this.addVines(world, blockpos4, changedBlocks, bbox);
+										if (rand.nextInt(4) == 0 && world.isAirBlock(blockpos1))
+											this.addVines(world, blockpos1, changedBlocks, bbox);
+									}
+								}
 							}
 						}
 						if (rand.nextInt(4) == 0 && height > 5) {
@@ -200,9 +231,8 @@ public class NoobBioBiome extends NoobModElements.ModElement {
 		}
 
 		private boolean canGrowInto(Block blockType) {
-			return blockType.getDefaultState().getMaterial() == Material.AIR || blockType == Blocks.DIRT.getDefaultState().getBlock()
-					|| blockType == Blocks.DIRT.getDefaultState().getBlock() || blockType == Blocks.DIRT.getDefaultState().getBlock()
-					|| blockType == Blocks.DIRT.getDefaultState().getBlock();
+			return blockType.getDefaultState().getMaterial() == Material.AIR || blockType == Blocks.DIRT || blockType == Blocks.DIRT
+					|| blockType == Blocks.DIRT || blockType == Blocks.DIRT;
 		}
 
 		private boolean isReplaceable(IWorld world, BlockPos pos) {

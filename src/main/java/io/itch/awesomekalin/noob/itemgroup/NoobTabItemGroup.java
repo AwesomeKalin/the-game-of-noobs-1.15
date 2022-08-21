@@ -18,11 +18,11 @@ public class NoobTabItemGroup extends NoobModElements.ModElement {
 
 	@Override
 	public void initElements() {
-		tab = new ItemGroup("tabnoobtab") {
+		tab = new ItemGroup("tabnoob_tab") {
 			@OnlyIn(Dist.CLIENT)
 			@Override
 			public ItemStack createIcon() {
-				return new ItemStack(NoobChestBlock.block, (int) (1));
+				return new ItemStack(NoobChestBlock.block);
 			}
 
 			@OnlyIn(Dist.CLIENT)
